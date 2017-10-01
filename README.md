@@ -1,5 +1,5 @@
 # Mandelbrot fractal
-Simple Mandelbrot fractal renderer in Haskell
+Mandelbrot fractal renderer in Haskell
 
 Examples:
 

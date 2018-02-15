@@ -1,6 +1,6 @@
 module Main (main) where
 
-colors = renderSet 1920 1080 12000 12000 (0.15) (0.8) 256
+colors = renderSet (1920, 1080) (12000, 12000) (0.15, 0.8) 256
 
 main = writeFile "set.pgm" (make_pgm 1920 1080 colors)
 
@@ -53,8 +53,8 @@ color k@(a, b) max = (dist, 0, 0)
 
 
 
-renderSet :: Int -> Int -> Int -> Int -> Float -> Float -> Int -> [Color]
-renderSet width height stepX stepY shiftX shiftY max =
+renderSet :: (Int, Int) -> (Int, Int) -> (Float, Float) -> Int -> [Color]
+renderSet (width, height) (stepX, stepY) (shiftX, shiftY) max =
              map col ([(cent a stepX shiftX, cent b stepY shiftY) | b <- [1..height], a <- [1..width]] :: [Complex])
              where
                  col c = color c max
